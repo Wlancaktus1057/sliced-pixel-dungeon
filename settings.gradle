@@ -4,8 +4,6 @@ include ':core'
 
 //platform modules
 include ':android'
-include ':ios'
-include ':desktop'
 
 //service modules
 include ':services'
@@ -15,3 +13,9 @@ include ':services'
     //news
     include ':services:news:debugNews'
     include ':services:news:shatteredNews'
+
+//dependencyResolutionManagement{
+//    repositories{
+//maven { url "https://jitpack.io" }
+//    }
+//    }
