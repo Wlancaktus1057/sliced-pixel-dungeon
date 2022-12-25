@@ -38,9 +38,9 @@
 		android:resizeableActivity="true"
 		android:allowBackup="true"
 		android:fullBackupOnly="true"
-		android:backupAgent=".AndroidBackupHandler">
+		android:backupAgent=".android.AndroidBackupHandler">
 		<activity
-			android:name=".AndroidLauncher"
+			android:name=".android.AndroidLauncher"
 			android:screenOrientation="nosensor"
 			android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
 			android:exported="true">
@@ -50,7 +50,7 @@
 			</intent-filter>
 		</activity>
 		<activity
-			android:name=".AndroidMissingNativesHandler">
+			android:name=".android.AndroidMissingNativesHandler">
 		</activity>
 
 

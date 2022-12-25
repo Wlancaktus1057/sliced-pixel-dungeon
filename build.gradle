@@ -1,6 +1,6 @@
 buildscript {
     repositories {
-        //maven { url 'https://www.jitpack.io'}
+        maven { url 'https://jitpack.io'}
         google()
         mavenCentral()
         //jcenter() //deprecated
@@ -37,7 +37,7 @@ allprojects {
     version = appVersionName
 
     repositories {
-        //maven { url 'https://jitpack.io'}
+        maven { url 'https://jitpack.io'}
         google()
         mavenCentral()
         //jcenter() //deprecated
