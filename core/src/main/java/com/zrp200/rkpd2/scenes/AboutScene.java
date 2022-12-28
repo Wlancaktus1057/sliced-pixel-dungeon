@@ -73,10 +73,12 @@ public class AboutScene extends PixelScene {
 		content.clear();
 
 		// Sliced Pixel Dungeon credit and copyright
-		CreditsBlock slpd = new CreditsBlock(true, 0xff994d,
+		CreditsBlock slpd = new CreditsBlock(true, 0xFF994D00,
 				"Sliced Pixel Dungeon",
 				new Image(Assets.Interfaces.WLANCAKTUS),
-				"By _Wlancaktus1057_","https://github.com/Wlancaktus1057"
+				"By _Wlancaktus1057_",
+				"https://github.com/Wlancaktus1057",
+				null
 		);
 		content.add(slpd);
 
