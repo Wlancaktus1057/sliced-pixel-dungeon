@@ -13,9 +13,3 @@ include ':services'
     //news
     include ':services:news:debugNews'
     include ':services:news:shatteredNews'
-
-//dependencyResolutionManagement{
-//    repositories{
-//maven { url "https://jitpack.io" }
-//    }
-//    }

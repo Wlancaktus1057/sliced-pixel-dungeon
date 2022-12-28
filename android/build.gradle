@@ -1,19 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-//    signingConfigs {
-//        release {
-//            storeFile file('C:\\Users\\Zrp200\\Zrp200.jks')
-//            storePassword 'palkia'
-//            keyAlias 'Zrp200'
-//            keyPassword 'palkia'
-//        }
-//    }
-//
     compileSdkVersion appAndroidCompileSDK
     compileOptions.sourceCompatibility = compileOptions.targetCompatibility = appJavaCompatibility
 
     sourceSets.main.assets.srcDirs = [new File(project(':core').projectDir, "/src/main/assets")]
+
+    buildToolsVersion "33.0.1"
 
     defaultConfig {
         manifestPlaceholders = [appName:appName]
@@ -25,8 +18,6 @@ android {
         //noinspection MinSdkTooLow
         minSdkVersion appAndroidMinSDK
         targetSdkVersion appAndroidTargetSDK
-
-        ///buildToolsVersion "33.0.1" //i was here
 
         resConfigs "en_US", "cs", "tr", "ca", "ko", "pl", "it", "ja",
                 "eo", "ru", "zh_CN", "de", "fr", "es", "pt", "fi", "hu", "in"
@@ -55,7 +46,6 @@ android {
                 releaseImplementation project(':services:updates:githubUpdates')
                 releaseImplementation project(':services:news:shatteredNews')
             }
-            //signingConfig signingConfigs.release
         }
     }
 
@@ -72,14 +62,12 @@ dependencies {
     implementation project(':core')
 
     implementation "com.badlogicgames.gdx:gdx-backend-android:$gdxVersion"
-    //natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-armeabi-v7a"
-    //dont need armv7
+    natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-armeabi-v7a"
     natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86"
     natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-arm64-v8a"
     natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86_64"
     implementation "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
-    //natives "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-armeabi-v7a"
-    //drop armv7
+    natives "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-armeabi-v7a"
     natives "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-arm64-v8a"
     natives "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-x86"
     natives "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-x86_64"
@@ -91,14 +79,14 @@ dependencies {
 // the natives configuration, and extracts them to the proper libs/ folders
 // so they get packed with the APK.
 task copyAndroidNatives() {
-    //file("libs/armeabi-v7a/").mkdirs() //we dont need v7
+    file("libs/armeabi-v7a/").mkdirs()
     file("libs/arm64-v8a/").mkdirs()
     file("libs/x86/").mkdirs()
     file("libs/x86_64/").mkdirs()
 
     configurations.natives.copy().files.each { jar ->
         def outputDir = null
-        //if(jar.name.endsWith("natives-armeabi-v7a.jar")) outputDir = file("libs/armeabi-v7a")
+        if(jar.name.endsWith("natives-armeabi-v7a.jar")) outputDir = file("libs/armeabi-v7a")
         if(jar.name.endsWith("natives-arm64-v8a.jar")) outputDir = file("libs/arm64-v8a")
         if(jar.name.endsWith("natives-x86.jar")) outputDir = file("libs/x86")
         if(jar.name.endsWith("natives-x86_64.jar")) outputDir = file("libs/x86_64")
@@ -111,13 +99,3 @@ task copyAndroidNatives() {
         }
     }
 }
-
-android {
-    buildToolsVersion "33.0.1"
-}
-
-//buildscript {
-//    ext {
-//        compileSdkVersion = 33
-//    }
-//}

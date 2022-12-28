@@ -3,10 +3,6 @@ buildscript {
         maven { url 'https://jitpack.io'}
         google()
         mavenCentral()
-        //jcenter() //deprecated
-        //jcenter {
-        //    url "https://jcenter.bintray.com/"
-        //}
         maven { url 'https://maven.google.com'}
     }
     dependencies {
@@ -20,11 +16,10 @@ allprojects {
         appName = 'Dungeon'
         appPackageName = 'com.wlancaktus.pd'
 
-        appVersionCode = 653
+        appVersionCode = 1
         appVersionName = '1.0.0'
 
         appJavaCompatibility = JavaVersion.VERSION_1_8
-        //was appJavaCompatibility = JavaVersion.VERSION_1_8
 
         appAndroidCompileSDK = 33 //was 31
         appAndroidMinSDK = 14
@@ -40,8 +35,6 @@ allprojects {
         maven { url 'https://jitpack.io'}
         google()
         mavenCentral()
-        //jcenter() //deprecated
-        //jcenter { url 'https://jcenter.bintray.com'}
         //maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
         maven { url 'https://maven.google.com'}
     }
