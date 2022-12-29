@@ -73,18 +73,20 @@ public class AboutScene extends PixelScene {
 		content.clear();
 
 		// Sliced Pixel Dungeon credit and copyright
-		CreditsBlock slpd = new CreditsBlock(true, 0xFF994D00,
+		final int SLPD_COLOR = 0xFF994D;
+		CreditsBlock slpd = new CreditsBlock(true, SLPD_COLOR,
 				"Sliced Pixel Dungeon",
-				new Image(Assets.Interfaces.WLANCAKTUS),
+				Icons.WLANCAKTUS.get(),
 				"By _Wlancaktus1057_",
-				"https://github.com/Wlancaktus1057",
-				null
+				"github.com/wlancaktus1057",
+				"https://github.com/Wlancaktus1057"
 		);
+		slpd.setRect((w - fullWidth)/2f, 6, 120, 0);
 		content.add(slpd);
 
 		// RKPD2 Credits
 		CreditsBlock rkpd2 = new CreditsBlock(true, Window.TITLE_COLOR, "RKPD2", new RatKingSprite(), "All Thanks To _Rat King_!\nInspired by Evan's Rat King Dungeon", "ratking.com","https://www.youtube.com/watch?v=dQw4w9WgXcQ");
-		rkpd2.setRect((w - fullWidth)/2f, 6, 120, 0);
+		rkpd2.setRect(slpd.left(), slpd.bottom()+8, 120, 0);
 		content.add(rkpd2);
 
 		CreditsBlock zrp = new CreditsBlock(false, 0x9b57b6,"Development", new Image(Assets.Interfaces.ZRP200),"Zrp200",null,null);
